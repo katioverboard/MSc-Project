@@ -14,7 +14,6 @@
 ##################################################################
 
 # Rscript [gene ID]
-# directory: mnt/lustre/groups/biol-pgen-2019/kg913/Brassica/scripts
 
 args <- commandArgs(T)
 cat(args, sep = "\n")

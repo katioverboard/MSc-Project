@@ -149,9 +149,13 @@ for(i in 1:length(exp.condition)){
     module load lang/R\n",  file=sh.file, append=TRUE, sep="")
 
 # get subregion
-    cat("samtools view -h ../../../../../Gamma/bam/", exp.condition[i], ".sorted.bam ", coord,
-        " > ../../../results/", ID, "/bam/", exp.condition[i], ".sub.sort.bam\n",
-        file = sh.file, append = T, sep = "")
+    cat("samtools view -h ../bam/", exp.condition[i],".bam ",coord,
+        " > ../results/", exp.condition[i], "-", ID, ".sub.bam \n", file=sh.file, append=TRUE, sep="")
+
+
+# sort subregion
+    cat("samtools sort ../results/", exp.condition[i],"-", ID,".sub.bam > ../results/",
+        exp.condition[i], "-", ID, ".sub.sort.bam \n", file=sh.file, append=TRUE, sep="")
 
 # get fastq
     cat("samtools mpileup -uf ../../../../../Gamma/reference/ref.fa ../../../results/", ID,
@@ -164,10 +168,11 @@ for(i in 1:length(exp.condition)){
         " > ../../../results/", ID, "/fastq/", exp.condition[i], "-mapped.fastq\n",
         file = sh.file, append = T, sep = "")
 
-# get vcf - all in one
-    cat("bcftools mpileup -f ../../../../../Gamma/reference/ref.fa ../../../results/", ID, "/bam/*.bam",
-        "| bcftools call -mv",
-        " > ../../../results/", ID, "/vcf/", ID, ".vcf\n",
+# get vcf - Filter D 5000
+    cat("samtools mpileup -uf ../../../ZJ2020/reference/ref.fa ../../bam/", 
+        exp.condition[i], "-", ID, ".sub.sort.bam | bcftools call -c | ",
+        "vcfutils.pl varFilter -D 5000 > ../../results/", ID, "/",
+        exp.condition[i], "-vcf-", ID, ".vcf\n",
         file = sh.file, append = T, sep = "")
 
 # consensus from reference
@@ -175,7 +180,7 @@ for(i in 1:length(exp.condition)){
         " > ../../../results/", ID, "/fasta/", ID, "-reference.fa\n",
         file = sh.file, append=T, sep = "")
 
-# clean fasta
+# consensus fasta
     cat("bcftools mpileup -f ../../../../../Gamma/reference/ref.fa ../../../results/", ID, "/bam/", exp.condition[i], ".sub.sort.bam",
         "| bcftools call -mv -O z > ../../../results/", ID, "/fasta/", exp.condition[i], ".vcf.gz\n ",
         "tabix -p vcf ../../../results/", ID, "/fasta/", exp.condition[i], ".vcf.gz\n ",
