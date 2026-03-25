@@ -1,5 +1,3 @@
-# MSc-Project
-
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a id="readme-top"></a>
 <!--
@@ -20,12 +18,12 @@
 -->
 
 
-<h2 align="center">Variant Detection in Brassica Napus</h2>
+<h1 align="center">Variant Detection in Brassica Napus</h1>
 
   <p align="center">
     Computational pipeline to analyse variants in NGS data
     <br />
-    <a href="https://github.com/katioverboard/MSc-Project/docs/Katarina_Gmeiner_MRes_Thesis.pdf"><strong>Full Thesis »</strong></a>
+    <a href="https://github.com/katioverboard/MSc-Project/blob/main/docs/Katarina_Gmeiner_MRes_Thesis.pdf"><strong>Full Thesis »</strong></a>
     <br />
   </p>
 </div>
@@ -59,8 +57,6 @@ The aim of this project was to create a robust and reproducible analysis pipelin
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 ### Built With
 
 * [![R][R]][R-url]
@@ -70,16 +66,42 @@ The aim of this project was to create a robust and reproducible analysis pipelin
 
 ## Workflow
 
+![pipeline]
 
+<p>Preperations</p>
 
+* Mapping of raw reads to reference sequence
+* Sorting of resulting BAM files
+* Shortening of sequences to include target regions
+
+<p>Variant Calling</p>
+
+* Exclusion of control variants
+* Separation into SNPs and INDEL files
+* Removal of introns
+* Both: QUAL < 30
+* SNPs: Missing-data < 50%
+* Removal of too common variants
+
+## Results
+
+![results-overview]
+
+* In total 22 SNPs were selected for further analysis
+* No INDELs passed the pipeline
+* However, sequencing data did show a deletion in the FAE1 gene
+
+[fae1-deletion]
 
 <!-- LIMITATIONS -->
-## Limitations
+## Future Work
+
+<p>Since the present INDEL was filtered, too stringent filters might have been used</p>
+<p>The separation into SNPs and INDELs could be implemented earlier to ensure a more specific handling of different variation types</p>
+<p>This might include the development of two separate analysis pipelines</p>
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- CONTACT -->
 ## Contact
@@ -88,14 +110,11 @@ Katarina Gmeiner - katarina.gmeiner@yahoo.de
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+* The entire Bancroft lab for their continued support
+* Dr. Zhesi He in particular, for guiding me through this project
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -103,6 +122,10 @@ Katarina Gmeiner - katarina.gmeiner@yahoo.de
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[pipeline]: https://github.com/katioverboard/MSc-Project/blob/main/docs/pipeline.png
+[results-overview]: https://github.com/katioverboard/MSc-Project/blob/main/docs/results-overview.png
+[fae1-deletion]: https://github.com/katioverboard/MSc-Project/blob/main/docs/fae1-deletion.png
+
 [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
 [contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
