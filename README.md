@@ -35,7 +35,7 @@
   <li>
     <a href="#overview">Overview</a>
     <ul>
-      <li><a href="#software-used">Software Used</a></li>
+      <li><a href="#tools--technologies">Tools & Technologies</a></li>
       <li><a href="#repository-structure">Repository Structure</a></li>
     </ul>
   </li>
@@ -67,11 +67,22 @@ The aim of this project was to create a robust and reproducible analysis pipelin
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Software Used
+### Tools & Technologies
 
-- [![R][R]][R-url]
-- [![Python][Python]][Python-url]
-- 
+#### Programming
+[![Python][Python]][Python-url]
+[![R][R]][R-url]
+
+#### NGS Data Processing & Variant Calling
+[![SAMtools][SAMtools]][SAMtools-url]
+[![BCFtools][BCFtools]][BCFtools-url]
+
+#### Variant Filtering & Quality Control
+[![VCFtools][VCFtools]][VCFtools-url]
+[![BEDtools][BEDtools]][BEDtools-url]
+
+#### Indexing
+[![Tabix][Tabix]][Tabix-url]
 
 ### Repository Structure
 `/scripts`: Main scripts used for the analysis pipeline </br>
@@ -152,5 +163,21 @@ Katarina Gmeiner - katarina.gmeiner@yahoo.de
 <!-- Shields.io badges. You can a comprehensive list with many more badges at: https://github.com/inttter/md-badges -->
 [R]: https://img.shields.io/badge/R-%23276DC3.svg?logo=r&logoColor=white
 [R-url]: https://www.r-project.org/
+
 [Python]: https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff
 [Python-url]: https://www.python.org/
+
+[SAMtools]: https://img.shields.io/badge/SAMtools-BAM%20Processing%20%7C%20mpileup-blue
+[SAMtools-url]: http://www.htslib.org/
+
+[BCFtools]: https://img.shields.io/badge/BCFtools-Variant%20Calling%20%7C%20Filtering-orange
+[BCFtools-url]: http://www.htslib.org/
+
+[VCFtools]: https://img.shields.io/badge/VCFtools-Variant%20Filtering%20%7C%20QC-yellow
+[VCFtools-url]: https://vcftools.github.io/
+
+[BEDtools]: https://img.shields.io/badge/BEDtools-Exon%20Filtering%20%7C%20Intersect-green
+[BEDtools-url]: https://bedtools.readthedocs.io/
+
+[Tabix]: https://img.shields.io/badge/Tabix-VCF%20Indexing-lightgrey
+[Tabix-url]: http://www.htslib.org/doc/tabix.html
