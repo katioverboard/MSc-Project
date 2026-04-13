@@ -92,11 +92,11 @@ The aim of this project was to create a robust and reproducible analysis pipelin
 
 ## Workflow Summary
 
-Mapping of reads to reference genome
-BAM processing and filtering
-Variant calling
-Variant filtering
-Wet-lab validation
+- Mapping of reads to reference genome
+- BAM processing and filtering
+- Variant calling
+- Variant filtering
+- Wet-lab validation
 
 ![pipeline]
 
